@@ -85,4 +85,21 @@ router.post("/update/(:id)", (req, res, next) => {
   }
 });
 
+router.get("/delete/(:id)", (req, res, next) => {
+  let { id } = req.params;
+
+  connection.query(
+    "DELETE FROM kategori WHERE id_kategori=?",
+    id,
+    (err, rows) => {
+      if (err) {
+        req.flash("error", "Gagal Menghapus Data");
+      } else {
+        req.flash("success", "Berhasil Menghapus Data");
+      }
+      res.redirect("/kategori");
+    }
+  );
+});
+
 module.exports = router;
