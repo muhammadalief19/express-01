@@ -13,9 +13,19 @@
   </head>
   <body>
     <div class="container py-5">
-      <% if (messages.success) { %>
-      <div class="alert alert-info" role="alert"><%- messages.success %></div>
-      <% } %>
+      <div class="col-10 mx-auto">
+        <% if (messages.success) { %>
+        <div class="alert alert-info alert-dismissible fade show" role="alert">
+          <%- messages.success %>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="alert"
+            aria-label="Close"
+          ></button>
+        </div>
+        <% } %>
+      </div>
       <div class="row">
         <div class="col">
           <div class="col-10 mx-auto">
